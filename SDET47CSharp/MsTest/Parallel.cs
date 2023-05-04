@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
 using System;
 using System.Threading;
 
@@ -12,7 +13,8 @@ namespace SDET47CSharp.MsTest
         public void TestMethod1()
         {
             Console.WriteLine( "t1" );
-            Thread.Sleep(5000);
+            Thread.Sleep(1000);
+            Logger.LogMessage("logging a message in passed script");
         }
 
         [TestMethod]
@@ -20,7 +22,9 @@ namespace SDET47CSharp.MsTest
         public void TestMethod2()
         {
             Console.WriteLine("t2");
-            Thread.Sleep(8000);
+            Thread.Sleep(1000);
+            Assert.Fail("Failing using Assert.Fail()");
+            Logger.LogMessage("logging a message in Failed Script");
         }
 
         [TestMethod]
@@ -28,7 +32,8 @@ namespace SDET47CSharp.MsTest
         public void TestMethod3()
         {
             Console.WriteLine("t3");
-            Thread.Sleep(10000);
+            Thread.Sleep(1000);
+            Logger.LogMessage("logging a message in passed script");
         }
     }
 }
