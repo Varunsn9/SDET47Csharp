@@ -14,7 +14,7 @@ namespace SDET47CSharp.MsTest
         {
             Console.WriteLine( "t1" );
             Thread.Sleep(1000);
-            Logger.LogMessage("logging a message in passed script");
+            //Logger.LogMessage("logging a message in passed script");
         }
 
         [TestMethod]
@@ -24,7 +24,7 @@ namespace SDET47CSharp.MsTest
             Console.WriteLine("t2");
             Thread.Sleep(1000);
             Assert.Fail("Failing using Assert.Fail()");
-            Logger.LogMessage("logging a message in Failed Script");
+           // Logger.LogMessage("logging a message in Failed Script");
         }
 
         [TestMethod]
@@ -33,7 +33,7 @@ namespace SDET47CSharp.MsTest
         {
             Console.WriteLine("t3");
             Thread.Sleep(1000);
-            Logger.LogMessage("logging a message in passed script");
+            //Logger.LogMessage("logging a message in passed script");
         }
     }
 }

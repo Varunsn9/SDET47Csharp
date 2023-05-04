@@ -1,0 +1,59 @@
+﻿using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SDET47CSharp.Generic.Main
+{
+    [TestClass]
+    public class BaseCls
+    {
+        public IWebDriver driver;
+        public static ExtentReports extentReports;
+        public  ExtentTest extentTest;
+        public  string screenShotPath;
+        public static BaseCls instance=new BaseCls();
+        public static ExtentHtmlReporter extentHtmlReporter;
+        public static string testResultPath = "C:\\Users\\VARUN SN\\source\\repos\\SDET47CSharp\\SDET47CSharp\\Generic\\Utilities\\Reports\\";
+
+
+        [AssemblyInitialize]
+        public static void AssemblyIniTializeMethod(TestContext testContext)
+        {
+            extentReports = new ExtentReports();
+            instance.ExtendReportInitilize();
+            Console.WriteLine("codeIni");
+            extentHtmlReporter = new ExtentHtmlReporter(testResultPath + "FirstReport.html");
+            extentHtmlReporter.Start();
+
+        }
+
+        public void ExtendReportInitilize()
+        {
+            // MessageBox.Show("Asem INI");
+
+        }
+
+        public void ExtendReportCleanup()
+        {
+
+            
+            
+
+        }
+
+        [AssemblyCleanup]
+        public static void AssemblyCleanUpMethod()
+        {
+            //instance.ExtendReportCleanup();
+            extentReports.Flush();
+            Console.WriteLine("cleanup");
+            extentHtmlReporter.Stop();
+        }
+    }
+}

@@ -15,19 +15,7 @@ namespace SDET47CSharp
     [TestClass]
     public class BaseClass
     {
-        [AssemblyInitialize]
-        public static void AssemblyIniTializeMethod(TestContext testContext)
-        {
-           
-           // MessageBox.Show("Asem INI");
-        }
-
-        [AssemblyCleanup]
-        public static void AssemblyCleanUpMethod()
-        {
-            
-            //MessageBox.Show("Asem CUP");
-        }
+        
 
         [TestInitialize]
         [Priority(0)]
