@@ -23,7 +23,7 @@ namespace SDET47CSharp.Generic.Utilities
         {
 
            
-            extentReports.AttachReporter(extentHtmlReporter);
+            
            // extentTest = extentReports.CreateTest("TestInilize");
 
             driver = new ChromeDriver();
@@ -35,31 +35,51 @@ namespace SDET47CSharp.Generic.Utilities
         public void facebook()
         {
             extentTest = extentReports.CreateTest("Facebook");
+            
             driver.Navigate().GoToUrl("https://www.facebook.com");
+         
             ITakesScreenshot takesScreenshot = (ITakesScreenshot)driver;
             var screenShot=takesScreenshot.GetScreenshot();
             screenShotPath = "C:\\Users\\VARUN SN\\source\\repos\\SDET47CSharp\\SDET47CSharp\\Generic\\ScreenShot\\Facebook.png";
             screenShot.SaveAsFile(screenShotPath, ScreenshotImageFormat.Png);
 
-            extentTest.Log(Status.Info, "facebook");
-            Assert.IsTrue(true);
-              extentTest.Pass("TestPassed");
+            extentTest.Log(Status.Info, "facebook taking a screenshot");
+            
+            bool condition=false;
+            if (condition == true)
+            {
+                Assert.IsTrue(true);
+                extentTest.Pass("TestPassed");
+            }
+            else
+            {
+                try
+                {
+                    Assert.IsTrue(false);
+                }
+                catch(Exception ex)
+                {
+
+                    extentTest.Fail("TestFailed");
+                }
+            }
         }
 
         [TestMethod]
         [TestCategory("ExtentHtmlReporter")]
         public void google()
         {
-           extentTest = extentReports.CreateTest("Google");
+            extentTest = extentReports.CreateTest("Google");
             driver.Navigate().GoToUrl("https://www.google.com");
             ITakesScreenshot takesScreenshot = (ITakesScreenshot)driver;
             var screenShot = takesScreenshot.GetScreenshot();
             screenShotPath = "C:\\Users\\VARUN SN\\source\\repos\\SDET47CSharp\\SDET47CSharp\\Generic\\ScreenShot\\Google.png";
             screenShot.SaveAsFile(screenShotPath, ScreenshotImageFormat.Png);
 
-         extentTest.Log(Status.Pass, "Google");
+            extentTest.Log(Status.Warning, "Its is a status Waring");
+            extentTest.Warning("ExtentTestWarning Method");
             Assert.IsTrue(true);
-          extentTest.Pass("TestPassed");
+            extentTest.Pass("TestPassed");
         }
 
         [TestCleanup]
@@ -68,8 +88,7 @@ namespace SDET47CSharp.Generic.Utilities
 
             driver.Close();
             driver.Dispose();
-            //extentReports.Flush();
-            extentTest.AddScreenCaptureFromPath(testResultPath);
+            extentTest.AddScreenCaptureFromPath(screenShotPath);
         }
     }
 }

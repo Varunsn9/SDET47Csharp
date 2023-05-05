@@ -15,8 +15,8 @@ namespace SDET47CSharp.Generic.Main
     {
         public IWebDriver driver;
         public static ExtentReports extentReports;
-        public  ExtentTest extentTest;
-        public  string screenShotPath;
+        public ExtentTest extentTest;
+        public string screenShotPath;
         public static BaseCls instance=new BaseCls();
         public static ExtentHtmlReporter extentHtmlReporter;
         public static string testResultPath = "C:\\Users\\VARUN SN\\source\\repos\\SDET47CSharp\\SDET47CSharp\\Generic\\Utilities\\Reports\\";
@@ -26,11 +26,11 @@ namespace SDET47CSharp.Generic.Main
         public static void AssemblyIniTializeMethod(TestContext testContext)
         {
             extentReports = new ExtentReports();
-            instance.ExtendReportInitilize();
+           // instance.ExtendReportInitilize();
             Console.WriteLine("codeIni");
-            extentHtmlReporter = new ExtentHtmlReporter(testResultPath + "FirstReport.html");
+            extentHtmlReporter = new ExtentHtmlReporter(testResultPath);
             extentHtmlReporter.Start();
-
+            extentReports.AttachReporter(extentHtmlReporter);
         }
 
         public void ExtendReportInitilize()
@@ -41,9 +41,6 @@ namespace SDET47CSharp.Generic.Main
 
         public void ExtendReportCleanup()
         {
-
-            
-            
 
         }
 
