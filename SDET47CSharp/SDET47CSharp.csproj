@@ -460,6 +460,7 @@
     <Compile Include="Object_Repo\LoginPage\LoginPageGenericMethods.cs" />
     <Compile Include="Tests\HomePage\HomePageTest.cs" />
     <Compile Include="Tests\LoginPage\LoginPageTest.cs" />
+    <Compile Include="Tests\LoginPage\UnitTest1.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
