@@ -14,7 +14,7 @@ namespace SDET47CSharp.Generic.Main
     [TestClass]
     public class BaseCls
     {
-        public IWebDriver driver;
+        public static IWebDriver driver;
         public static ExtentReports extentReports;
         public ExtentTest extentTest;
         public string screenShotPath;
