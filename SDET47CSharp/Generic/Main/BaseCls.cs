@@ -32,7 +32,6 @@ namespace SDET47CSharp.Generic.Main
         [AssemblyInitialize]
         public static void AssemblyIniTializeMethod(TestContext testContext)
         {
-            
             extentReports = new ExtentReports();
            // instance.ExtendReportInitilize();
             Console.WriteLine("codeIni");
