@@ -13,12 +13,14 @@ namespace SDET47CSharp.Tests.LoginPage
         {
             Console.WriteLine(TestContext.TestName);
         }
-        [TestCleanup] public void TestCleanup() {  Console.WriteLine(TestContext.TestName); }
+        [TestCleanup] public void TestCleanup() 
+        {  
+            Console.WriteLine(TestContext.TestName);
+        }
 
         [ClassInitialize]
         public static void ClassInitialize(TestContext testcontext)
         {
-            
             Console.WriteLine("CI");
         }
 

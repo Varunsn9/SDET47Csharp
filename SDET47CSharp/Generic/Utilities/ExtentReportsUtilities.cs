@@ -9,6 +9,7 @@ using SDET47CSharp.Generic.Main;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -35,12 +36,12 @@ namespace SDET47CSharp.Generic.Utilities
         public void ExtentReportsMethod()
         {
 
-           
+
             
-           // extentTest = extentReports.CreateTest("TestInilize");
+            // extentTest = extentReports.CreateTest("TestInilize");
 
             //driver = new ChromeDriver();
-            extentTest = extentReports.CreateTest(TestContext.TestName+" "+TestContext.DataRow);
+            extentTest = extentReports.CreateTest(TestContext.TestName);
         }
 
         [TestMethod]
@@ -93,16 +94,17 @@ namespace SDET47CSharp.Generic.Utilities
             extentTest.Warning("ExtentTestWarning Method");
             Assert.IsTrue(true);
             extentTest.Pass("TestPassed");
+            
         }
 
 
         [TestMethod]
         [DataTestMethod]
-        [DataRow("Facebook", "https://www.facebook.com")]
-        [DataRow("Google", "https://www.google.com")]
-        [DataRow("Vtiger", "http://www.localhost:8888")]
+        [DataRow("Facebook", "https://www.facebook.com",true)]
+        [DataRow("Google", "https://www.google.com",false)]
+        [DataRow("Vtiger", "http://www.localhost:8888",true)]
         [TestCategory("ExtentHtmlReporter")]
-        public void DataDriven(string website,string url)
+        public void DataDriven(string website,string url,bool test)
         {
             //extentTest = extentReports.CreateTest("Facebook");
 
@@ -115,7 +117,7 @@ namespace SDET47CSharp.Generic.Utilities
 
             extentTest.Log(Status.Info, TestContext.TestName+" "+website+" taking a screenshot");
 
-            bool condition = false;
+            bool condition = test;
             if (condition == true)
             {
                 Assert.IsTrue(true);
@@ -123,23 +125,18 @@ namespace SDET47CSharp.Generic.Utilities
             }
             else
             {
-                try
-                {
-                    Assert.IsTrue(false);
-                }
-                catch (Exception ex)
-                {
-
                     extentTest.Fail("TestFailed");
-                }
+                    Assert.IsTrue(false);
+                
             }
         }
 
         [TestCleanup]
         public void ExtentReportTearDown()
         {
-
+            Console.WriteLine(TestContext.CurrentTestOutcome); 
             extentTest.AddScreenCaptureFromPath(screenShotPath);
+            
         }
     }
 }
