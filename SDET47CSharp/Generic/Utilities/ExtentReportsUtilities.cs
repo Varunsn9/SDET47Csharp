@@ -37,7 +37,7 @@ namespace SDET47CSharp.Generic.Utilities
         {
 
 
-            
+
             // extentTest = extentReports.CreateTest("TestInilize");
 
             //driver = new ChromeDriver();

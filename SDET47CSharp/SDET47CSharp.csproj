@@ -451,6 +451,7 @@
     <Compile Include="Generic\Utilities\ExcelUtilities.cs" />
     <Compile Include="Generic\Utilities\ExtentReportsUtilities.cs" />
     <Compile Include="Generic\Utilities\IWebDriverUtilities.cs" />
+    <Compile Include="Generic\Utilities\PathConstants.cs" />
     <Compile Include="MsTest\DataRowDataDriven.cs" />
     <Compile Include="MsTest\Priorities.cs" />
     <Compile Include="MsTest\Parallel.cs" />
