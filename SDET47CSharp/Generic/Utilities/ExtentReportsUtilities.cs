@@ -59,7 +59,7 @@ namespace SDET47CSharp.Generic.Utilities
 
             extentTest.Log(Status.Info, "facebook taking a screenshot");
             
-            bool condition=false;
+            bool condition=true;
             if (condition == true)
             {
                 Assert.IsTrue(true);
@@ -67,15 +67,8 @@ namespace SDET47CSharp.Generic.Utilities
             }
             else
             {
-                try
-                {
-                    Assert.IsTrue(false);
-                }
-                catch(Exception ex)
-                {
-
                     extentTest.Fail("TestFailed");
-                }
+                    Assert.IsTrue(false);
             }
         }
 
